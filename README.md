@@ -5,9 +5,6 @@ policy trained in simulation and executes it on a **parallel-jaw gripper** — w
 pre-execution quality gate that makes perception failures and execution failures
 separately attributable, and a per-trial archive that makes every result reproducible.
 
-Built for a master's research project on functional grasping at Southeast University.
-This repository contains the **deployment system**; the affordance-representation
-research it supports is under review and is not included here.
 
 ---
 
