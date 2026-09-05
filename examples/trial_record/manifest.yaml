@@ -1,0 +1,276 @@
+schema: ral_real_grasp_auto_archive_v1
+run_id: real_grasp_20260825_154805_chips_p02_t01_success
+source_online_run: $HOME/demo/runs/online_chips_can/20260825_154805_chips_p02_t01
+finalized_local: '2026-08-25T15:50:00+08:00'
+result:
+  label: success
+  user_declared: true
+  note: null
+  after_execution_evidence_count: 1
+object:
+  id: 001_chips_can
+  dataset: YCB
+  dimensions_m:
+  - 0.075
+  - 0.075
+  - 0.25
+  pose: side_lying
+robot:
+  arm: UR5e
+  gripper: DH Robotics AG95
+  camera: Intel RealSense D435i
+  camera_mount: eye_in_hand
+method:
+  affordance: 0.75 geometric score + 0.25 contact-aware PointNet
+  affordance_region: strict_middle_20_percent_argmax
+  selected_affordance_fusion_score: 0.82896547201886
+  policy_checkpoint: $HOME/RAL-simulate/checkpoints/final_mixed/seed0/model_4060.pt
+  policy_style: 0
+  adaptation: DemoFunGrasp_Inspire_direction_to_AG95_top_down_cross_diameter
+  execution_mode: single_view_registration_then_guarded_open_loop
+registration:
+  rgb_depth_sync_delta_sec: 0.0
+  table_plane_rmse_m: 0.001537807199904828
+  visible_object_points: 70065
+  observed_axis_span_m: 0.21704304383075723
+  observed_to_model_distance_m:
+    mean: 0.005609706078949668
+    median: 0.005634481965981667
+    p90: 0.007993531862289007
+    p95: 0.008646896612228672
+  object_center_base_m:
+  - 0.09912386335125842
+  - 0.5542160188142233
+  - 0.8507024343678462
+  object_axis_base:
+  - 0.5031245881310459
+  - -0.8642134458982211
+  - -0.0008767820071312431
+quality_gate:
+  schema: online_chips_can_quality_gate_v1
+  passed: true
+  checks:
+    registration_p95_m: 0.008646896612228672
+    table_rmse_m: 0.001537807199904828
+    observed_axis_span_m: 0.21704304383075723
+    visible_object_points: 70065
+    object_center_base_m:
+    - 0.09912386335125842
+    - 0.5542160188142233
+    - 0.8507024343678462
+    object_axis_base:
+    - 0.5031245881310459
+    - -0.8642134458982211
+    - -0.0008767820071312431
+    table_top_z_m: 0.813198215355844
+    execution_anchor_base_m:
+    - 0.09962566720895046
+    - 0.5544701160326089
+    - 0.888198215830459
+    high_target_base_m:
+    - 0.09962566720895046
+    - 0.5544701160326089
+    - 1.088198215830459
+    approach_down_alignment: 1.0
+  failures: []
+execution:
+  candidate_id: dfg_ag95_pregrasp_h200_r+00
+  designated_log: logs/execute_20260825_154853.log
+  high_target_base_m:
+  - 0.09962566720895046
+  - 0.5544701160326089
+  - 1.088198215830459
+  cartesian_fraction_min: 1.0
+  cartesian_segment_count: 29
+  descent_steps: 24
+  lift_steps: 5
+  high_pose_final_position_error_m: 0.0001
+  pregrasp_velocity_scaling: 0.05
+  pregrasp_acceleration_scaling: 0.03
+  sequence_finished_cleanly: true
+designated_evidence:
+  stamp:
+    secs: 1787644198
+    nsecs: 2352238
+    time_sec: 1787644198.0023522
+  color_stamp:
+    secs: 1787644198
+    nsecs: 2352238
+    time_sec: 1787644198.0023522
+  depth_stamp:
+    secs: 1787644198
+    nsecs: 2352238
+    time_sec: 1787644198.0023522
+  sync_delta_sec: 0.0
+  topics:
+    color: /camera/color/image_raw
+    depth: /camera/aligned_depth_to_color/image_raw
+    color_camera_info: /camera/color/camera_info
+    depth_camera_info: /camera/aligned_depth_to_color/camera_info
+  frames:
+    color_frame_id: camera_color_optical_frame
+    depth_frame_id: camera_color_optical_frame
+    base_frame: base_link
+    ee_frame: gripper_center_link
+    camera_frame: camera_color_optical_frame
+  images:
+    color_encoding: rgb8
+    depth_encoding: 16UC1
+    color_shape:
+    - 720
+    - 1280
+    - 3
+    depth_shape:
+    - 720
+    - 1280
+    depth_dtype: uint16
+  saved_files:
+    rgb_png: after_lift_1787644198_002352238_rgb.png
+    depth_npy: after_lift_1787644198_002352238_depth.npy
+    depth_png: after_lift_1787644198_002352238_depth.png
+    depth_preview_png: after_lift_1787644198_002352238_depth_preview.png
+    metadata_json: after_lift_1787644198_002352238_metadata.json
+  pose:
+    reference_frame: base_link
+    child_frame: gripper_center_link
+    lookup_mode: image_timestamp
+    transform_stamp:
+      secs: 1787644198
+      nsecs: 2352238
+      time_sec: 1787644198.0023522
+    position_m:
+      x: 0.09966192578606875
+      y: 0.5544535523077512
+      z: 0.9033174324935769
+    orientation_xyzw:
+      x: -0.33950966994213877
+      y: -0.6204783668749851
+      z: 0.3389182091676058
+      w: -0.6203823238540525
+    orientation_rpy_rad:
+      roll: 2.2321106894916882
+      pitch: 1.5699489188281897
+      yaw: 1.2314372816191854
+  camera_pose:
+    reference_frame: base_link
+    child_frame: camera_color_optical_frame
+    lookup_mode: image_timestamp
+    transform_stamp:
+      secs: 1787644198
+      nsecs: 2352238
+      time_sec: 1787644198.0023522
+    position_m:
+      x: 0.025493809331966898
+      y: 0.6095177425187647
+      z: 1.0586444823200378
+    orientation_xyzw:
+      x: -0.9611744587457882
+      y: -0.27591225401013003
+      z: 0.003348915615885256
+      w: -0.00221177588341867
+    orientation_rpy_rad:
+      roll: 3.139188789564146
+      pitch: 0.00765837116147706
+      yaw: 0.5590727502582485
+  camera_info:
+    color:
+      frame_id: camera_color_optical_frame
+      stamp:
+        secs: 1787644198
+        nsecs: 102029800
+        time_sec: 1787644198.1020298
+      height: 720
+      width: 1280
+      distortion_model: plumb_bob
+      D:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      K:
+      - 910.0582885742188
+      - 0.0
+      - 656.5992431640625
+      - 0.0
+      - 909.6278686523438
+      - 368.57049560546875
+      - 0.0
+      - 0.0
+      - 1.0
+      R:
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      P:
+      - 910.0582885742188
+      - 0.0
+      - 656.5992431640625
+      - 0.0
+      - 0.0
+      - 909.6278686523438
+      - 368.57049560546875
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+    depth:
+      frame_id: camera_color_optical_frame
+      stamp:
+        secs: 1787644198
+        nsecs: 135253668
+        time_sec: 1787644198.1352537
+      height: 720
+      width: 1280
+      distortion_model: plumb_bob
+      D:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      K:
+      - 910.0582885742188
+      - 0.0
+      - 656.5992431640625
+      - 0.0
+      - 909.6278686523438
+      - 368.57049560546875
+      - 0.0
+      - 0.0
+      - 1.0
+      R:
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      P:
+      - 910.0582885742188
+      - 0.0
+      - 656.5992431640625
+      - 0.0
+      - 0.0
+      - 909.6278686523438
+      - 368.57049560546875
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.0
+software:
+  ros_distro: noetic
+  ur_ws_git_head: 6d929a5e08ac61d8b760302d0dec1674b451afd8
+  ral_git_head: null
+  code_snapshot: code_snapshot/

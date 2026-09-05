@@ -1,0 +1,33 @@
+{
+  "schema": "online_chips_can_quality_gate_v1",
+  "passed": true,
+  "checks": {
+    "registration_p95_m": 0.008646896612228672,
+    "table_rmse_m": 0.001537807199904828,
+    "observed_axis_span_m": 0.21704304383075723,
+    "visible_object_points": 70065,
+    "object_center_base_m": [
+      0.09912386335125842,
+      0.5542160188142233,
+      0.8507024343678462
+    ],
+    "object_axis_base": [
+      0.5031245881310459,
+      -0.8642134458982211,
+      -0.0008767820071312431
+    ],
+    "table_top_z_m": 0.813198215355844,
+    "execution_anchor_base_m": [
+      0.09962566720895046,
+      0.5544701160326089,
+      0.888198215830459
+    ],
+    "high_target_base_m": [
+      0.09962566720895046,
+      0.5544701160326089,
+      1.088198215830459
+    ],
+    "approach_down_alignment": 1.0
+  },
+  "failures": []
+}

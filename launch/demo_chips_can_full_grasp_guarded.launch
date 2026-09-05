@@ -1,0 +1,41 @@
+<launch>
+  <arg name="candidate_file" />
+  <arg name="execute" default="false" />
+  <arg name="confirm_execute" default="" />
+  <arg name="stop_before_close" default="false" />
+
+  <node pkg="ur_controller"
+        type="demo_chips_can_semiauto_grasp.py"
+        name="demo_chips_can_full_grasp_guarded"
+        output="screen">
+    <param name="candidate_file" value="$(arg candidate_file)" />
+    <param name="candidate_index" value="0" />
+    <param name="target_frame" value="base_link" />
+    <param name="eef_link" value="gripper_center_link" />
+    <!-- Candidate is already top+200 mm; final center is top-35 mm. -->
+    <param name="free_pregrasp_z_offset_m" value="0.0" />
+    <param name="grasp_z_offset_m" value="-0.235" />
+    <param name="cartesian_step_m" value="0.010" />
+    <param name="eef_step" value="0.002" />
+    <param name="min_fraction" value="0.99" />
+    <param name="lift_m" value="0.050" />
+    <param name="open_width_m" value="0.095" />
+    <param name="close_widths" value="0.085,0.080,0.070" />
+    <param name="force" value="25.0" />
+    <param name="speed" value="20.0" />
+    <!-- AG95 grip_state stayed 1 during the verified successful grasp. -->
+    <param name="require_grip_state_for_lift" value="false" />
+    <param name="clear_table_scene" value="false" />
+    <param name="max_high_position_error_m" value="0.006" />
+    <param name="velocity_scaling" value="0.015" />
+    <param name="accel_scaling" value="0.015" />
+    <!-- Faster only while moving/rotating in the high, obstacle-free pregrasp phase. -->
+    <param name="pregrasp_velocity_scaling" value="0.050" />
+    <param name="pregrasp_accel_scaling" value="0.030" />
+    <param name="planning_time" value="10.0" />
+    <param name="planning_attempts" value="20" />
+    <param name="stop_before_close" value="$(arg stop_before_close)" />
+    <param name="execute" value="$(arg execute)" />
+    <param name="confirm_execute" value="$(arg confirm_execute)" />
+  </node>
+</launch>

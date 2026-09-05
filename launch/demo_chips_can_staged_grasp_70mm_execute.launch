@@ -1,0 +1,48 @@
+<launch>
+  <arg name="target_offset_x_m" default="0.000" />
+  <arg name="target_offset_y_m" default="-0.025" />
+  <arg name="final_target_clearance_m" default="-0.035" />
+  <arg name="max_descend_m" default="0.150" />
+  <arg name="rotate_after_align" default="true" />
+
+  <node pkg="ur_controller"
+        type="demo_chips_can_visual_servo_grasp.py"
+        name="demo_chips_can_visual_servo_grasp"
+        output="screen">
+    <param name="execute" value="true" />
+    <param name="confirm_execute" value="RUN_CHIPS_CAN_VISUAL_SERVO" />
+    <param name="single_shot_target" value="false" />
+    <param name="stop_before_close" value="false" />
+    <param name="eef_link" value="gripper_center_link" />
+
+    <param name="target_clearance_m" value="0.110" />
+    <param name="xy_tolerance_m" value="0.008" />
+    <param name="z_tolerance_m" value="0.010" />
+    <param name="max_step_xy_m" value="0.010" />
+    <param name="max_step_z_m" value="0.010" />
+    <param name="max_iterations" value="14" />
+
+    <param name="freeze_visual_target" value="true" />
+    <param name="target_offset_x_m" value="$(arg target_offset_x_m)" />
+    <param name="target_offset_y_m" value="$(arg target_offset_y_m)" />
+    <param name="apply_offset_after_align" value="true" />
+
+    <param name="align_orientation" value="false" />
+    <param name="rotate_after_align" value="$(arg rotate_after_align)" />
+    <param name="orientation_tolerance_deg" value="8.0" />
+
+    <param name="descend_after_align" value="true" />
+    <param name="final_target_clearance_m" value="$(arg final_target_clearance_m)" />
+    <param name="max_descend_m" value="$(arg max_descend_m)" />
+
+    <param name="open_width_m" value="0.095" />
+    <param name="close_widths" value="0.085,0.080,0.075,0.070" />
+    <param name="force" value="25.0" />
+    <param name="speed" value="20.0" />
+    <param name="required_grip_states" value="1,2" />
+    <param name="lift_m" value="0.01" />
+
+    <param name="velocity_scaling" value="0.015" />
+    <param name="accel_scaling" value="0.015" />
+  </node>
+</launch>
